@@ -31,7 +31,7 @@ class _PremiumViewState extends State<PremiumView> {
               PremiumStackView(),
               SizedBox(height: 30),
               TextUntil.buildTextWidget(TextConstants.tryPremium, 34,
-                  ColorConstants.black, TextConstants.poppins, FontWeight.w700),
+                  ColorConstants.white, TextConstants.poppins, FontWeight.w700),
               RowUntil().premiumRowMethod(TextConstants.limitedAds),
               RowUntil().premiumRowMethod(
                 TextConstants.usingExamplePrompts,
@@ -48,6 +48,8 @@ class _PremiumViewState extends State<PremiumView> {
                   ),
                 ),
                 child: CheckboxListTile(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30)),
                   checkboxShape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30)),
                   title: Row(
@@ -56,13 +58,13 @@ class _PremiumViewState extends State<PremiumView> {
                         TextUntil.buildTextWidget(
                             TextConstants.lifetime,
                             17,
-                            ColorConstants.black,
+                            ColorConstants.white,
                             TextConstants.sfProText,
                             FontWeight.w600),
                         TextUntil.buildTextWidget(
                             TextConstants.ten$,
                             16,
-                            ColorConstants.black,
+                            ColorConstants.white,
                             TextConstants.sfProText,
                             FontWeight.w600),
                       ]),

@@ -36,7 +36,7 @@ class _CustomAppbarViewState extends State<CustomAppbarView> {
         padding: const EdgeInsets.only(right: 60),
         child: Center(
           child: TextUntil.buildTextWidget(widget.appBarTitle, 22,
-              ColorConstants.black, TextConstants.poppins, FontWeight.w700),
+              ColorConstants.white, TextConstants.poppins, FontWeight.w700),
         ),
       ),
     );

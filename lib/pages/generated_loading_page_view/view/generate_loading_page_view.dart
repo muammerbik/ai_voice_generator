@@ -56,7 +56,7 @@ class _GeneratedLoadingPageViewState extends State<GeneratedLoadingPageView>
             child: TextUntil.buildTextWidget(
               TextConstants.generateLoadingAppbarTitle,
               22,
-              Colors.black,
+              Colors.white,
               TextConstants.poppins,
               FontWeight.w700,
             ),

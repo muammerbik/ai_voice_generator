@@ -113,7 +113,7 @@ class _SharePageViewState extends State<SharePageView> {
     return Scaffold(
       appBar: CustomAppbarView(
         appBarTitle: TextConstants.appBarTitle,
-        appbarImage: "assets/icons/geriIcon.png",
+        appbarImage: "assets/icons/left2.png",
         onPressed: () {
           Navigator.of(context).push(MaterialPageRoute(
             builder: (context) => HomePageView(),
@@ -152,7 +152,7 @@ class _SharePageViewState extends State<SharePageView> {
                 TextConstants.appBarTitle,
                 style: TextStyle(
                   fontSize: 17,
-                  color: Color(0xFF1C1C1E),
+                  color: Colors.grey,
                   fontFamily: 'Poppins',
                   fontWeight: FontWeight.w400,
                 ),
@@ -162,7 +162,7 @@ class _SharePageViewState extends State<SharePageView> {
                 generatedViewModel.generatePersonList[myIndex].name,
                 style: TextStyle(
                   fontSize: 22,
-                  color: Colors.black,
+                  color: Colors.white,
                   fontFamily: 'Poppins',
                   fontWeight: FontWeight.w700,
                 ),
@@ -226,7 +226,7 @@ class _SharePageViewState extends State<SharePageView> {
                 ],
               ),
               SizedBox(
-                height: 115,
+                height: 110,
               ),
               CustomElevatedButtonView(
                 text: "Share",

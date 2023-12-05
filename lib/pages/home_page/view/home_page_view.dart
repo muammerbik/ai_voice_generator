@@ -28,17 +28,17 @@ class _HomePageViewState extends State<HomePageView> {
               ));
             },
             appBarTitle: TextConstants.appBarTitle,
-            appbarImage: "assets/icons/Group.png",
+            appbarImage: "assets/icons/stng.png",
           ),
           body: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(height: 80),
               TextUntil.buildTextWidget(TextConstants.startHere, 34,
-                  Colors.black, TextConstants.poppins, FontWeight.w700),
+                  Colors.white, TextConstants.poppins, FontWeight.w700),
               // SizedBox(height: 20),
               TextUntil.buildTextWidget(TextConstants.HomeTextDown, 17,
-                  ColorConstants.black, TextConstants.poppins, FontWeight.w400),
+                  ColorConstants.white, TextConstants.poppins, FontWeight.w400),
               SizedBox(height: 50),
               Image.asset(
                 "assets/images/down1.png",

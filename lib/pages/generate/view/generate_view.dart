@@ -44,7 +44,7 @@ class _GenerateViewState extends State<GenerateView> {
               Navigator.of(context).pop();
             },
             appBarTitle: TextConstants.appBarTitle,
-            appbarImage: "assets/icons/geriIcon.png",
+            appbarImage: "assets/icons/left2.png",
           ),
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,7 +57,7 @@ class _GenerateViewState extends State<GenerateView> {
                 child: TextUntil.buildTextWidget(
                   TextConstants.whatShouldAiCharacter,
                   17,
-                  Colors.black,
+                  Colors.white,
                   TextConstants.poppins,
                   FontWeight.w600,
                 ),
@@ -76,18 +76,21 @@ class _GenerateViewState extends State<GenerateView> {
                     ),
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: TextFormField(
-                      textInputAction:TextInputAction.done ,
+                    padding: EdgeInsets.all(8.0),
+                    child: TextField(
+                      textInputAction: TextInputAction.done,
                       controller: textEditingController,
                       maxLength: 250,
-                      maxLines: 5,
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         hintText: TextConstants.writeYourPrompts,
                         hintStyle: TextStyle(
                           fontSize: 17,
                           fontWeight: FontWeight.w400,
+                          color: Colors.white, // Metin rengi: Beyaz
                         ),
                       ),
                     ),
@@ -105,16 +108,15 @@ class _GenerateViewState extends State<GenerateView> {
                     TextUntil.buildTextWidget(
                       TextConstants.selectAiVoice,
                       17,
-                      Colors.black,
+                      Colors.white,
                       TextConstants.sfProText,
                       FontWeight.w600,
                     ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: Image.asset(
-                        "assets/icons/Message.png",
-                        height: 15,
-                      ),
+                    TextUntil.buildTextWidget(
+                      "SeeAll",
+                      17,
+                      Colors.white,
+                      TextConstants.sfProText,
                     ),
                   ],
                 ),
@@ -139,7 +141,7 @@ class _GenerateViewState extends State<GenerateView> {
                               border: Border.all(
                                 color: selectedTokenIndex == index
                                     ? Color(0xFF4E55FF)
-                                    : Colors.black.withOpacity(0.2),
+                                    : Colors.grey.withOpacity(0.2),
                                 width: 4,
                               ),
                               boxShadow: [
@@ -159,6 +161,7 @@ class _GenerateViewState extends State<GenerateView> {
                           ),
                           Text(
                             generateViewModel.generatePersonList[index].name,
+                            style: TextStyle(color: Colors.white),
                           ),
                         ],
                       ),

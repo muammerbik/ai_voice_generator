@@ -18,7 +18,7 @@ class OnbordingView extends StatefulWidget {
 class _OnbordingViewState extends State<OnbordingView> {
   final myOnbordingViewModel = OnbordingViewModel();
 
-  @override 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Observer(
@@ -40,7 +40,7 @@ class _OnbordingViewState extends State<OnbordingView> {
                 child: TextUntil.buildTextWidget(
                   TextConstants.onbordingText1,
                   34,
-                  ColorConstants.black,
+                  ColorConstants.white,
                   TextConstants.poppins,
                   FontWeight.w700,
                 ),
@@ -51,7 +51,7 @@ class _OnbordingViewState extends State<OnbordingView> {
                 child: TextUntil.buildTextWidget(
                   TextConstants.onbordingText2,
                   20,
-                  ColorConstants.black,
+                  ColorConstants.white,
                   TextConstants.poppins,
                   FontWeight.w500,
                 ),
@@ -60,7 +60,7 @@ class _OnbordingViewState extends State<OnbordingView> {
               TextUntil.buildTextWidget(
                 TextConstants.onbordingText3,
                 17,
-                ColorConstants.black,
+                ColorConstants.white,
                 TextConstants.sfProText,
                 FontWeight.w600,
               ),

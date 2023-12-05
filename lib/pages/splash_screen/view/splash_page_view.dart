@@ -34,7 +34,7 @@ class _SplashScreenViewState extends State<SplashScreenView>
 
     animationController = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 4),
+      duration: const Duration(seconds: 3),
     )..addListener(() {
         setState(() {});
       });
@@ -73,10 +73,10 @@ class _SplashScreenViewState extends State<SplashScreenView>
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.asset(
-          "assets/images/microphone.png",
-          height: 125,
-          width: 125,
-        ),
+            "assets/images/microphone.png",
+            height: 125,
+            width: 125,
+          ),
           const SizedBox(
             height: 50,
           ),
