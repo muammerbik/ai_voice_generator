@@ -18,40 +18,46 @@ class CustomElevatedButtonView extends StatefulWidget {
 class _CustomElevatedButtonViewState extends State<CustomElevatedButtonView> {
   @override
   Widget build(BuildContext context) {
-    return Observer(builder: (context) {
-      return  Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: GestureDetector(
-        onTap: widget.onTop,
-        child: Container(
-          width: double.infinity,
-          decoration: ShapeDecoration(
-            gradient: const LinearGradient(
-              colors: [
-                ColorConstants.buttonPurpleColor,
-                ColorConstants.buttonBlueColor
-              ],
+    return Observer(
+      builder: (context) {
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: GestureDetector(
+            onTap: widget.onTop,
+            child: Container(
+              width: double.infinity,
+              decoration: ShapeDecoration(
+                gradient: const LinearGradient(
+                  colors: [
+                    ColorConstants.buttonPurpleColor,
+                    ColorConstants.buttonBlueColor
+                  ],
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(150),
+                ),
+                shadows: [
+                  const BoxShadow(
+                    color: ColorConstants.shadowColor,
+                    blurRadius: 10,
+                    offset: Offset(0, 5),
+                    spreadRadius: 0,
+                  )
+                ],
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                child: TextUntil.buildTextWidget(
+                    widget.text,
+                    17,
+                    ColorConstants.white,
+                    TextConstants.sfProText,
+                    FontWeight.w600),
+              ),
             ),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(150),
-            ),
-            shadows: [
-              const BoxShadow(
-                color: ColorConstants.shadowColor,
-                blurRadius: 10,
-                offset: Offset(0, 5),
-                spreadRadius: 0,
-              )
-            ],
           ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 20),
-            child: TextUntil.buildTextWidget(widget.text, 17,
-                ColorConstants.white, TextConstants.sfProText, FontWeight.w600),
-          ),
-        ),
-      ),
+        );
+      },
     );
-    },);
   }
 }

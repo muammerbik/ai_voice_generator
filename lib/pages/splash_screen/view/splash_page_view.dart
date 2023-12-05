@@ -4,7 +4,7 @@ import 'package:ai_voice_generator/pages/onbording/view/onbording_view.dart';
 import 'package:ai_voice_generator/pages/onbording/viewmodel/onbording_view_model.dart';
 import 'package:ai_voice_generator/pages/premium/view/premium_view.dart';
 import 'package:ai_voice_generator/pages/premium/viewmodel/premium_view_model.dart';
-import 'package:ai_voice_generator/pages/settings/setting_view_model.dart';
+import 'package:ai_voice_generator/pages/settings/modelview/setting_view_model.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreenView extends StatefulWidget {

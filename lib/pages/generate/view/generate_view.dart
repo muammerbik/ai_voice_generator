@@ -3,13 +3,11 @@ import 'package:ai_voice_generator/companents/custom_elevated_button_view.dart';
 import 'package:ai_voice_generator/constants/color_constants.dart';
 import 'package:ai_voice_generator/constants/text_constants.dart';
 import 'package:ai_voice_generator/global.dart';
-import 'package:ai_voice_generator/pages/generate/generate_model.dart';
 import 'package:ai_voice_generator/pages/generate/viewmodel/generated_viewmodel.dart';
 import 'package:ai_voice_generator/pages/generated_loading_page_view/view/generate_loading_page_view.dart';
 import 'package:ai_voice_generator/pages/premium/view/premium_view.dart';
 import 'package:ai_voice_generator/pages/premium/viewmodel/premium_view_model.dart';
-import 'package:ai_voice_generator/pages/settings/setting_view_model.dart';
-import 'package:ai_voice_generator/services/fakeyou_%20api_services.dart';
+import 'package:ai_voice_generator/pages/settings/modelview/setting_view_model.dart';
 import 'package:ai_voice_generator/until/text_until.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -74,15 +72,13 @@ class _GenerateViewState extends State<GenerateView> {
                   decoration: ShapeDecoration(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(18),
-                      side: BorderSide(
-                        width: 1,
-                        color: Color(0x5B3C3C43),
-                      ),
+                      side: BorderSide(width: 1, color: Color(0xFF4E55FF)),
                     ),
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: TextFormField(
+                      textInputAction:TextInputAction.done ,
                       controller: textEditingController,
                       maxLength: 250,
                       maxLines: 5,
@@ -129,7 +125,6 @@ class _GenerateViewState extends State<GenerateView> {
                     return GestureDetector(
                       onTap: () {
                         setState(() {
-                          // Seçilen tokenin indeksini güncelle
                           selectedTokenIndex = index;
                           myIndex = selectedTokenIndex;
                         });
@@ -141,15 +136,20 @@ class _GenerateViewState extends State<GenerateView> {
                             height: 78,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(90),
-                              // Kenar rengini ve kalınlığını seçilen tokena göre ayarla
                               border: Border.all(
                                 color: selectedTokenIndex == index
-                                    ? ColorConstants
-                                        .buttonPurpleColor // Seçilen tokenın kenar rengi
-                                    : Colors
-                                        .black, // Seçilmeyen tokenların kenar rengi
+                                    ? Color(0xFF4E55FF)
+                                    : Colors.black.withOpacity(0.2),
                                 width: 4,
                               ),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.2),
+                                  spreadRadius: 1,
+                                  blurRadius: 4,
+                                  offset: Offset(0, 2),
+                                ),
+                              ],
                               image: DecorationImage(
                                 image: AssetImage(generateViewModel
                                     .generatePersonList[index].img),
@@ -180,17 +180,14 @@ class _GenerateViewState extends State<GenerateView> {
                       await mySettingsViewModel.settingsComplatedGet();
                   final premiumComplated = await premiumComplatedGet();
                   if (premiumComplated || remainingRights > 0) {
-                    // Kullanım hakkı varsa ve premium alınmamışsa Generate sayfasına git
                     Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (context) => GeneratedLoadingPageView(),
                       ),
                     );
 
-                    // Kullanım hakkını düşür
                     await mySettingsViewModel.settingsComplatedSet();
                   } else {
-                    // Kullanım hakkı yoksa ve premium alınmamışsa Premium sayfasına git
                     Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (context) => PremiumView(),

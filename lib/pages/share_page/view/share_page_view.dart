@@ -40,8 +40,7 @@ class _SharePageViewState extends State<SharePageView> {
         setState(() {
           sliderValue = 0;
           isPlaying = false;
-          shouldAutoStart =
-              false; // Ses dosyası tamamlandığında otomatik başlamasını önle
+          shouldAutoStart = false;
         });
       }
     });
@@ -89,12 +88,10 @@ class _SharePageViewState extends State<SharePageView> {
     } else {
       if (_audioPlayer.position.inMilliseconds >=
           _audioPlayer.duration!.inMilliseconds) {
-        // Eğer ses dosyası başa geldiyse
         _audioPlayer.seek(Duration.zero);
         setState(() {
           sliderValue = 0;
-          shouldAutoStart =
-              true; // Başa alındığında otomatik başlamasına izin ver
+          shouldAutoStart = true;
         });
       }
       _audioPlayer.play();
@@ -135,6 +132,14 @@ class _SharePageViewState extends State<SharePageView> {
                   borderRadius: BorderRadius.circular(190),
                   border: Border.all(
                       color: ColorConstants.buttonPurpleColor, width: 5),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5), // Gölge rengi
+                      spreadRadius: 5,
+                      blurRadius: 7,
+                      offset: Offset(0, 3), // Gölgenin konumu (x, y)
+                    ),
+                  ],
                   image: DecorationImage(
                     image: AssetImage(
                         generatedViewModel.generatePersonList[myIndex].img),
@@ -175,6 +180,7 @@ class _SharePageViewState extends State<SharePageView> {
                   }
                 },
               ),
+              SizedBox(height: 15),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -186,9 +192,9 @@ class _SharePageViewState extends State<SharePageView> {
                       width: 40,
                     ),
                   ),
-                  IconButton(
-                    onPressed: _startAudio,
-                    icon: Stack(
+                  GestureDetector(
+                    onTap: _startAudio,
+                    child: Stack(
                       alignment: Alignment.center,
                       children: [
                         Image.asset(
@@ -220,15 +226,14 @@ class _SharePageViewState extends State<SharePageView> {
                 ],
               ),
               SizedBox(
-                height: 130,
+                height: 115,
               ),
               CustomElevatedButtonView(
-                  text: "Paylaş",
-                  onTop: () {
-                    print(tokenUrl +
-                        "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-                    Share.share(tokenUrl);
-                  })
+                text: "Share",
+                onTop: () {
+                  Share.share(tokenUrl);
+                },
+              )
             ],
           ),
         ),

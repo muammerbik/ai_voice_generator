@@ -39,41 +39,42 @@ class _PremiumViewState extends State<PremiumView> {
               RowUntil().premiumRowMethod(TextConstants.ReachAllRappers),
               SizedBox(height: 10),
               Container(
-                  width: 350,
-                  height: 60,
-                  decoration: ShapeDecoration(
-                    shape: RoundedRectangleBorder(
-                      side: BorderSide(width: 2, color: Color(0xFF4E55FF)),
-                      borderRadius: BorderRadius.circular(30),
-                    ),
+                width: 350,
+                height: 60,
+                decoration: ShapeDecoration(
+                  shape: RoundedRectangleBorder(
+                    side: BorderSide(width: 2, color: Color(0xFF4E55FF)),
+                    borderRadius: BorderRadius.circular(30),
                   ),
-                  child: CheckboxListTile(
-                    checkboxShape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30)),
-                    title: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          TextUntil.buildTextWidget(
-                              TextConstants.lifetime,
-                              17,
-                              ColorConstants.black,
-                              TextConstants.sfProText,
-                              FontWeight.w600),
-                          TextUntil.buildTextWidget(
-                              TextConstants.ten$,
-                              16,
-                              ColorConstants.black,
-                              TextConstants.sfProText,
-                              FontWeight.w600),
-                        ]),
-                    value: myPremiumViewModel.checkBox,
-                    onChanged: (newvalue) {
-                      setState(() {
-                        myPremiumViewModel.checkBoxFunction(newvalue!);
-                        myPremiumViewModel.checkBox = newvalue;
-                      });
-                    },
-                  )),
+                ),
+                child: CheckboxListTile(
+                  checkboxShape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30)),
+                  title: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        TextUntil.buildTextWidget(
+                            TextConstants.lifetime,
+                            17,
+                            ColorConstants.black,
+                            TextConstants.sfProText,
+                            FontWeight.w600),
+                        TextUntil.buildTextWidget(
+                            TextConstants.ten$,
+                            16,
+                            ColorConstants.black,
+                            TextConstants.sfProText,
+                            FontWeight.w600),
+                      ]),
+                  value: myPremiumViewModel.checkBox,
+                  onChanged: (newvalue) {
+                    setState(() {
+                      myPremiumViewModel.checkBoxFunction(newvalue!);
+                      myPremiumViewModel.checkBox = newvalue;
+                    });
+                  },
+                ),
+              ),
               SizedBox(
                 height: 20,
               ),

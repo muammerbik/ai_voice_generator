@@ -41,7 +41,7 @@ class _HomePageViewState extends State<HomePageView> {
                   ColorConstants.black, TextConstants.poppins, FontWeight.w400),
               SizedBox(height: 50),
               Image.asset(
-                "assets/images/icon_line.png",
+                "assets/images/down1.png",
                 height: 170,
               ),
               SizedBox(height: 90),

@@ -1,7 +1,7 @@
 import 'package:ai_voice_generator/constants/text_constants.dart';
 import 'package:ai_voice_generator/global.dart';
 import 'package:ai_voice_generator/pages/generate/viewmodel/generated_viewmodel.dart';
-import 'package:ai_voice_generator/pages/settings/setting_view_model.dart';
+import 'package:ai_voice_generator/pages/settings/modelview/setting_view_model.dart';
 import 'package:ai_voice_generator/pages/share_page/view/share_page_view.dart';
 import 'package:ai_voice_generator/services/fakeyou_%20api_services.dart';
 import 'package:ai_voice_generator/until/text_until.dart';
@@ -24,22 +24,18 @@ class _GeneratedLoadingPageViewState extends State<GeneratedLoadingPageView>
   @override
   void initState() {
     getApiResponse();
-   
+
     super.initState();
   }
 
   void getApiResponse() async {
-    // Simulating API call delay
     await Future.delayed(Duration(milliseconds: 100));
 
-    // FakeyouApiServices().sendTokenToApi() fonksiyonu asenkron olduğu için
-    // await kullanarak işlemin bitmesini bekleyebilirsiniz.
     await FakeyouApiServices().sendTokenToApi(
       mytextFieldValue,
       viewModel.generatePersonList[myIndex].token,
     );
 
-    // API'den cevap geldiğinde isBool değerini true yaparak sayfayı geçin
     setState(() {
       isBool = true;
     });
@@ -47,8 +43,6 @@ class _GeneratedLoadingPageViewState extends State<GeneratedLoadingPageView>
     Navigator.of(context).push(MaterialPageRoute(
       builder: (context) => SharePageView(),
     ));
-    
-
   }
 
   @override
@@ -74,11 +68,11 @@ class _GeneratedLoadingPageViewState extends State<GeneratedLoadingPageView>
           height: 100,
           width: 100,
           child: Visibility(
-            visible: !isBool, // isBool false olduğu sürece görünür
+            visible: !isBool,
             child: CircularProgressIndicator(
               strokeWidth: 15,
             ),
-            replacement: Container(), // isBool true olduğunda görünür değil
+            replacement: Container(),
           ),
         ),
       ),

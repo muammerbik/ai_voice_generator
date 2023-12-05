@@ -1,6 +1,6 @@
 import 'package:ai_voice_generator/companents/custom_appbar_view.dart';
 import 'package:ai_voice_generator/constants/text_constants.dart';
-import 'package:ai_voice_generator/pages/settings/setting_view_model.dart';
+import 'package:ai_voice_generator/pages/settings/modelview/setting_view_model.dart';
 import 'package:ai_voice_generator/until/text_until.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
