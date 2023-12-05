@@ -1,9 +1,8 @@
 import 'package:ai_voice_generator/constants/color_constants.dart';
 import 'package:ai_voice_generator/constants/text_constants.dart';
-import 'package:ai_voice_generator/pages/share_page/view/share_page_view.dart';
 import 'package:ai_voice_generator/pages/splash_screen/view/splash_page_view.dart';
 
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'; /*  */
 import 'package:flutter/services.dart';
 
 void main() {

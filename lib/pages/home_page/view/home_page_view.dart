@@ -4,7 +4,6 @@ import 'package:ai_voice_generator/constants/color_constants.dart';
 import 'package:ai_voice_generator/constants/text_constants.dart';
 import 'package:ai_voice_generator/pages/generate/view/generate_view.dart';
 import 'package:ai_voice_generator/pages/settings/view/setting_view.dart';
-import 'package:ai_voice_generator/services/fakeyou_%20api_services.dart';
 import 'package:ai_voice_generator/until/text_until.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';

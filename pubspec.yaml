@@ -41,6 +41,8 @@ dependencies:
   shared_preferences: ^2.2.2
   uuid: ^4.2.1
   just_audio: ^0.9.36
+  share_plus: ^7.2.1
+ 
  
   
 

@@ -6,7 +6,7 @@ class SettingsViewModel = _SettingsViewModelBase with _$SettingsViewModel;
 
 abstract class _SettingsViewModelBase with Store {
   @observable
-  int premiumRight = 5;
+  int premiumRight = 2;
 
   @action
   Future<int> settingsComplatedSet() async {
@@ -23,7 +23,7 @@ abstract class _SettingsViewModelBase with Store {
   @action
   Future<int> settingsComplatedGet() async {
     final prefs = await SharedPreferences.getInstance();
-    premiumRight = prefs.getInt('premiumRight') ?? 5;
+    premiumRight = prefs.getInt('premiumRight') ?? 2;
     return premiumRight;
   }
 }

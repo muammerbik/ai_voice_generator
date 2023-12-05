@@ -20,78 +20,81 @@ class PremiumView extends StatefulWidget {
 class _PremiumViewState extends State<PremiumView> {
   final myPremiumViewModel = PremiumViewModel();
 
+  bool myPrem = false;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Observer(
-      builder: (context) {
-        return Column(
-          children: [
-            PremiumStackView(),
-            SizedBox(height: 30),
-            TextUntil.buildTextWidget(TextConstants.tryPremium, 34,
-                ColorConstants.black, TextConstants.poppins, FontWeight.w700),
-            RowUntil().premiumRowMethod(TextConstants.limitedAds),
-            RowUntil().premiumRowMethod(
-              TextConstants.usingExamplePrompts,
-            ),
-            RowUntil().premiumRowMethod(TextConstants.ReachAllRappers),
-            SizedBox(height: 10),
-            Container(
-                width: 350,
-                height: 60,
-                decoration: ShapeDecoration(
-                  shape: RoundedRectangleBorder(
-                    side: BorderSide(width: 2, color: Color(0xFF4E55FF)),
-                    borderRadius: BorderRadius.circular(30),
+    return Scaffold(
+      body: Observer(
+        builder: (context) {
+          return Column(
+            children: [
+              PremiumStackView(),
+              SizedBox(height: 30),
+              TextUntil.buildTextWidget(TextConstants.tryPremium, 34,
+                  ColorConstants.black, TextConstants.poppins, FontWeight.w700),
+              RowUntil().premiumRowMethod(TextConstants.limitedAds),
+              RowUntil().premiumRowMethod(
+                TextConstants.usingExamplePrompts,
+              ),
+              RowUntil().premiumRowMethod(TextConstants.ReachAllRappers),
+              SizedBox(height: 10),
+              Container(
+                  width: 350,
+                  height: 60,
+                  decoration: ShapeDecoration(
+                    shape: RoundedRectangleBorder(
+                      side: BorderSide(width: 2, color: Color(0xFF4E55FF)),
+                      borderRadius: BorderRadius.circular(30),
+                    ),
                   ),
-                ),
-                child: CheckboxListTile(
-                  checkboxShape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20)),
-                  title: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        TextUntil.buildTextWidget(
-                            TextConstants.lifetime,
-                            17,
-                            ColorConstants.black,
-                            TextConstants.sfProText,
-                            FontWeight.w600),
-                        TextUntil.buildTextWidget(
-                            TextConstants.ten$,
-                            16,
-                            ColorConstants.black,
-                            TextConstants.sfProText,
-                            FontWeight.w600),
-                      ]),
-                  value: myPremiumViewModel.checkBox,
-                  onChanged: (newvalue) {
-                    setState(() {
-                      myPremiumViewModel.checkBoxFunction(newvalue!);
-                      myPremiumViewModel.checkBox = newvalue;
-                    });
-                  },
-                )),
-            SizedBox(
-              height: 20,
-            ),
-            CustomElevatedButtonView(
-              onTop: () async {
-                await myPremiumViewModel.premiumComplatedSet();
-                await myPremiumViewModel.premiumComplatedGet();
+                  child: CheckboxListTile(
+                    checkboxShape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30)),
+                    title: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          TextUntil.buildTextWidget(
+                              TextConstants.lifetime,
+                              17,
+                              ColorConstants.black,
+                              TextConstants.sfProText,
+                              FontWeight.w600),
+                          TextUntil.buildTextWidget(
+                              TextConstants.ten$,
+                              16,
+                              ColorConstants.black,
+                              TextConstants.sfProText,
+                              FontWeight.w600),
+                        ]),
+                    value: myPremiumViewModel.checkBox,
+                    onChanged: (newvalue) {
+                      setState(() {
+                        myPremiumViewModel.checkBoxFunction(newvalue!);
+                        myPremiumViewModel.checkBox = newvalue;
+                      });
+                    },
+                  )),
+              SizedBox(
+                height: 20,
+              ),
+              CustomElevatedButtonView(
+                onTop: () async {
+                  await myPremiumViewModel.premiumComplatedSet();
+                  await myPremiumViewModel.premiumComplatedGet();
 
-                if (myPremiumViewModel.checkBox &&
-                    myPremiumViewModel.premiumComplated) {
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => HomePageView(),
-                  ));
-                }
-              },
-              text: TextConstants.continuee,
-            )
-          ],
-        );
-      },
-    ));
+                  if (myPremiumViewModel.checkBox &&
+                      myPremiumViewModel.premiumComplated) {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => HomePageView(),
+                    ));
+                  }
+                },
+                text: TextConstants.continuee,
+              )
+            ],
+          );
+        },
+      ),
+    );
   }
 }

@@ -16,12 +16,6 @@ class _SettingsViewState extends State<SettingsView> {
   final SettingsViewModel _settingsViewModel = SettingsViewModel();
 
   @override
-  void initState() {
-    _settingsViewModel.settingsComplatedSet();
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Observer(
       builder: (context) {
@@ -54,12 +48,14 @@ class _SettingsViewState extends State<SettingsView> {
                         Colors.black, TextConstants.poppins, FontWeight.w500),
                     TextUntil.buildTextWidget(TextConstants.privacyPolicy, 20,
                         Colors.black, TextConstants.poppins, FontWeight.w500),
-                    TextUntil.buildTextWidget(
-                        "Remaining Usage: ${_settingsViewModel.premiumRight}",
-                        20,
-                        Colors.grey,
-                        TextConstants.poppins,
-                        FontWeight.w500),
+                    Observer(builder: (_) {
+                      return TextUntil.buildTextWidget(
+                          "Remaining Usage: ${_settingsViewModel.premiumRight}",
+                          20,
+                          Colors.grey,
+                          TextConstants.poppins,
+                          FontWeight.w500);
+                    }),
                   ],
                 )),
           ),

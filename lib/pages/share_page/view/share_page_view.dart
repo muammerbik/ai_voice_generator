@@ -1,10 +1,15 @@
 import 'dart:async';
+import 'package:ai_voice_generator/companents/custom_appbar_view.dart';
 import 'package:ai_voice_generator/companents/custom_elevated_button_view.dart';
+import 'package:ai_voice_generator/constants/color_constants.dart';
+import 'package:ai_voice_generator/constants/text_constants.dart';
 import 'package:ai_voice_generator/global.dart';
 import 'package:ai_voice_generator/pages/generate/viewmodel/generated_viewmodel.dart';
+import 'package:ai_voice_generator/pages/home_page/view/home_page_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:share_plus/share_plus.dart';
 
 class SharePageView extends StatefulWidget {
   const SharePageView({Key? key}) : super(key: key);
@@ -37,7 +42,6 @@ class _SharePageViewState extends State<SharePageView> {
           isPlaying = false;
           shouldAutoStart =
               false; // Ses dosyası tamamlandığında otomatik başlamasını önle
-          _loadAudio();
         });
       }
     });
@@ -53,30 +57,47 @@ class _SharePageViewState extends State<SharePageView> {
   }
 
   void _seekForward() {
-    _audioPlayer.seek(
-        Duration(milliseconds: _audioPlayer.position.inMilliseconds + 1000));
+    if (shouldAutoStart) {
+      _audioPlayer.seek(
+          Duration(milliseconds: _audioPlayer.position.inMilliseconds + 1000));
+    }
   }
 
   void _seekBackward() {
-    _audioPlayer.seek(
-        Duration(milliseconds: _audioPlayer.position.inMilliseconds - 1000));
+    if (shouldAutoStart) {
+      final geriSarMiktari = 1000;
+      final yeniPozisyon =
+          _audioPlayer.position.inMilliseconds - geriSarMiktari;
+
+      if (yeniPozisyon >= 0) {
+        _audioPlayer.seek(Duration(milliseconds: yeniPozisyon));
+        setState(() {
+          sliderValue = yeniPozisyon.toDouble();
+        });
+      } else {
+        _audioPlayer.seek(Duration.zero);
+        setState(() {
+          sliderValue = 0;
+        });
+      }
+    }
   }
 
   void _startAudio() {
     if (isPlaying) {
       _audioPlayer.pause();
     } else {
-      if (sliderValue >= maxValue) {
-        _audioPlayer.seek(Duration(milliseconds: 0));
+      if (_audioPlayer.position.inMilliseconds >=
+          _audioPlayer.duration!.inMilliseconds) {
+        // Eğer ses dosyası başa geldiyse
+        _audioPlayer.seek(Duration.zero);
         setState(() {
           sliderValue = 0;
           shouldAutoStart =
               true; // Başa alındığında otomatik başlamasına izin ver
         });
       }
-      if (shouldAutoStart) {
-        _audioPlayer.play();
-      }
+      _audioPlayer.play();
     }
 
     setState(() {
@@ -93,8 +114,14 @@ class _SharePageViewState extends State<SharePageView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Share Page'),
+      appBar: CustomAppbarView(
+        appBarTitle: TextConstants.appBarTitle,
+        appbarImage: "assets/icons/geriIcon.png",
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => HomePageView(),
+          ));
+        },
       ),
       body: Observer(
         builder: (context) => Center(
@@ -105,8 +132,9 @@ class _SharePageViewState extends State<SharePageView> {
                 width: 182,
                 height: 193,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(150),
-                  border: Border.all(color: Colors.black, width: 4),
+                  borderRadius: BorderRadius.circular(190),
+                  border: Border.all(
+                      color: ColorConstants.buttonPurpleColor, width: 5),
                   image: DecorationImage(
                     image: AssetImage(
                         generatedViewModel.generatePersonList[myIndex].img),
@@ -116,7 +144,7 @@ class _SharePageViewState extends State<SharePageView> {
               ),
               SizedBox(height: 30),
               Text(
-                'App Bar Title',
+                TextConstants.appBarTitle,
                 style: TextStyle(
                   fontSize: 17,
                   color: Color(0xFF1C1C1E),
@@ -139,10 +167,12 @@ class _SharePageViewState extends State<SharePageView> {
                 min: 0,
                 max: maxValue,
                 onChanged: (value) {
-                  setState(() {
-                    sliderValue = value;
-                  });
-                  _audioPlayer.seek(Duration(milliseconds: value.toInt()));
+                  if (shouldAutoStart) {
+                    setState(() {
+                      sliderValue = value;
+                    });
+                    _audioPlayer.seek(Duration(milliseconds: value.toInt()));
+                  }
                 },
               ),
               Row(
@@ -192,7 +222,13 @@ class _SharePageViewState extends State<SharePageView> {
               SizedBox(
                 height: 130,
               ),
-              CustomElevatedButtonView(text: "Share", onTop: () {})
+              CustomElevatedButtonView(
+                  text: "Paylaş",
+                  onTop: () {
+                    print(tokenUrl +
+                        "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+                    Share.share(tokenUrl);
+                  })
             ],
           ),
         ),

@@ -7,25 +7,24 @@ class PremiumViewModel = _PremiumViewModelBase with _$PremiumViewModel;
 abstract class _PremiumViewModelBase with Store {
   @observable
   bool premiumComplated = false;
-  
+
   @observable
   bool checkBox = false;
 
   @action
   Future<void> premiumComplatedSet() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setBool('premiumComplated', true);
+    await prefs.setBool('premiumComplated', true);
+    premiumComplated = true;
   }
 
-@observable
-
-  
-List<String> imageModel = [
-  "assets/images/img_premium1.png",
- "assets/images/img_premium2.png",
-  "assets/images/img_premium3.png",
- "assets/images/img_premium4.png",
-];
+  @observable
+  List<String> imageModel = [
+    "assets/images/img_premium1.png",
+    "assets/images/img_premium2.png",
+    "assets/images/img_premium3.png",
+    "assets/images/img_premium4.png",
+  ];
 
   @action
   Future<void> premiumComplatedGet() async {
@@ -38,4 +37,3 @@ List<String> imageModel = [
     checkBox = value;
   }
 }
-

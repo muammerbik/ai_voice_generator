@@ -1,16 +1,19 @@
 import 'package:ai_voice_generator/companents/custom_appbar_view.dart';
 import 'package:ai_voice_generator/companents/custom_elevated_button_view.dart';
+import 'package:ai_voice_generator/constants/color_constants.dart';
 import 'package:ai_voice_generator/constants/text_constants.dart';
 import 'package:ai_voice_generator/global.dart';
 import 'package:ai_voice_generator/pages/generate/generate_model.dart';
 import 'package:ai_voice_generator/pages/generate/viewmodel/generated_viewmodel.dart';
 import 'package:ai_voice_generator/pages/generated_loading_page_view/view/generate_loading_page_view.dart';
+import 'package:ai_voice_generator/pages/premium/view/premium_view.dart';
 import 'package:ai_voice_generator/pages/premium/viewmodel/premium_view_model.dart';
 import 'package:ai_voice_generator/pages/settings/setting_view_model.dart';
 import 'package:ai_voice_generator/services/fakeyou_%20api_services.dart';
 import 'package:ai_voice_generator/until/text_until.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uuid/uuid.dart';
 
 class GenerateView extends StatefulWidget {
@@ -26,6 +29,11 @@ class _GenerateViewState extends State<GenerateView> {
   TextEditingController textEditingController = TextEditingController();
   final generateViewModel = GeneratedViewModel();
   int selectedTokenIndex = -1;
+
+  Future<bool> premiumComplatedGet() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getBool('premiumComplated') ?? false;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -136,7 +144,8 @@ class _GenerateViewState extends State<GenerateView> {
                               // Kenar rengini ve kalınlığını seçilen tokena göre ayarla
                               border: Border.all(
                                 color: selectedTokenIndex == index
-                                    ? Colors.blue // Seçilen tokenın kenar rengi
+                                    ? ColorConstants
+                                        .buttonPurpleColor // Seçilen tokenın kenar rengi
                                     : Colors
                                         .black, // Seçilmeyen tokenların kenar rengi
                                 width: 4,
@@ -167,16 +176,27 @@ class _GenerateViewState extends State<GenerateView> {
                   String textFieldValue = textEditingController.text;
                   mytextFieldValue = textFieldValue;
 
-               
-                  
-                    generateViewModel
-                        .generatePersonList[selectedTokenIndex].token;
-                
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => GeneratedLoadingPageView(),
-                    ),
-                  );
+                  final remainingRights =
+                      await mySettingsViewModel.settingsComplatedGet();
+                  final premiumComplated = await premiumComplatedGet();
+                  if (premiumComplated || remainingRights > 0) {
+                    // Kullanım hakkı varsa ve premium alınmamışsa Generate sayfasına git
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => GeneratedLoadingPageView(),
+                      ),
+                    );
+
+                    // Kullanım hakkını düşür
+                    await mySettingsViewModel.settingsComplatedSet();
+                  } else {
+                    // Kullanım hakkı yoksa ve premium alınmamışsa Premium sayfasına git
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => PremiumView(),
+                      ),
+                    );
+                  }
                 },
                 text: TextConstants.generate,
               ),
