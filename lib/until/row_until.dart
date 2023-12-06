@@ -14,7 +14,7 @@ class RowUntil {
             width: 12,
             height: 12,
           ),
-          SizedBox(width: 5),
+          const SizedBox(width: 5),
           TextUntil.buildTextWidget(
               text, 17, Colors.white, TextConstants.poppins, FontWeight.w400)
         ],

@@ -20,11 +20,9 @@ class _PremiumStackViewState extends State<PremiumStackView> {
         GridView.builder(
           itemCount: premiumViewmodel.imageModel.length,
           itemBuilder: (context, index) {
-            return Container(
-              child: Image.asset(premiumViewmodel.imageModel[index]),
-            );
+            return Image.asset(premiumViewmodel.imageModel[index]);
           },
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             crossAxisSpacing: 9,
             mainAxisSpacing: 9,
@@ -37,7 +35,7 @@ class _PremiumStackViewState extends State<PremiumStackView> {
           child: IconButton(
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => HomePageView(),
+                builder: (context) => const HomePageView(),
               ));
             },
             icon: Stack(
@@ -47,7 +45,7 @@ class _PremiumStackViewState extends State<PremiumStackView> {
                   width: 50,
                   height: 50,
                   decoration: BoxDecoration(
-                      color: Color(0xFFD9D9D9).withOpacity(0.6),
+                      color: const Color(0xFFD9D9D9).withOpacity(0.6),
                       borderRadius: BorderRadius.circular(35)),
                 ),
                 Image.asset(

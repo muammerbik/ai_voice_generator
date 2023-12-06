@@ -29,7 +29,7 @@ class _GeneratedLoadingPageViewState extends State<GeneratedLoadingPageView>
   }
 
   void getApiResponse() async {
-    await Future.delayed(Duration(milliseconds: 100));
+    await Future.delayed(const Duration(milliseconds: 100));
 
     await FakeyouApiServices().sendTokenToApi(
       mytextFieldValue,
@@ -41,7 +41,7 @@ class _GeneratedLoadingPageViewState extends State<GeneratedLoadingPageView>
     });
 
     Navigator.of(context).push(MaterialPageRoute(
-      builder: (context) => SharePageView(),
+      builder: (context) => const SharePageView(),
     ));
   }
 
@@ -64,12 +64,12 @@ class _GeneratedLoadingPageViewState extends State<GeneratedLoadingPageView>
         ),
       ),
       body: Center(
-        child: Container(
+        child: SizedBox(
           height: 100,
           width: 100,
           child: Visibility(
             visible: !isBool,
-            child: CircularProgressIndicator(
+            child: const CircularProgressIndicator(
               strokeWidth: 15,
             ),
             replacement: Container(),

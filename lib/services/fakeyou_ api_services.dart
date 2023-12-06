@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:ai_voice_generator/global.dart';
 import 'package:ai_voice_generator/services/fakeyou_get_model.dart';
 import 'package:ai_voice_generator/services/fakeyou_model.dart';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:uuid/uuid.dart';
 
@@ -10,7 +11,7 @@ class FakeyouApiServices {
   final String getBaseUrl = "https://api.fakeyou.com/tts/job/";
 
   Future<String> sendTokenToApi(String tokenText, String tokenModel) async {
-    Uuid uuid = Uuid();
+    Uuid uuid = const Uuid();
     String result = 'a';
 
     final response = await http.post(
@@ -29,19 +30,19 @@ class FakeyouApiServices {
     );
 
     if (response.statusCode == 200) {
-      print(response.body);
+      debugPrint(response.body);
       fakeyouModelll model = fakeyouModelll.fromJson(response.body);
       String ttfPath = "";
 
       while (true) {
-        await Future.delayed(Duration(milliseconds: 150));
+        await Future.delayed(const Duration(milliseconds: 150));
 
         final response2 = await http.get(
           Uri.parse('$getBaseUrl${model.inference_job_token}'),
         );
 
         if (response2.statusCode == 200) {
-          print(response2.body);
+          debugPrint(response2.body);
           VoiceModel model2 = VoiceModel.fromJson(response2.body);
 
           if (model2.state.status == "complete_success") {

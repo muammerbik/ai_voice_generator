@@ -34,7 +34,7 @@ class _SettingsViewState extends State<SettingsView> {
           ),
           body: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
-            child: Container(
+            child: SizedBox(
               height: 310,
               width: 203,
               child: Column(
@@ -46,7 +46,7 @@ class _SettingsViewState extends State<SettingsView> {
                           onTap: () {
                             Navigator.of(context).push(
                               MaterialPageRoute(
-                                builder: (context) => PremiumView(),
+                                builder: (context) => const PremiumView(),
                               ),
                             );
                           },
@@ -57,7 +57,7 @@ class _SettingsViewState extends State<SettingsView> {
                               TextConstants.poppins,
                               FontWeight.w500),
                         )
-                      : Text(""),
+                      : const Text(""),
                   TextUntil.buildTextWidget(TextConstants.shareApp, 20,
                       Colors.white, TextConstants.poppins, FontWeight.w500),
                   TextUntil.buildTextWidget(TextConstants.rateUs, 20,
@@ -78,7 +78,7 @@ class _SettingsViewState extends State<SettingsView> {
                               Colors.grey,
                               TextConstants.poppins,
                               FontWeight.w500)
-                          : Text("");
+                          : const Text("");
                     },
                   ),
                 ],

@@ -7,7 +7,7 @@ class CustomAppbarView extends StatefulWidget implements PreferredSizeWidget {
   final Function() onPressed;
   final String appBarTitle;
   final String appbarImage;
-  CustomAppbarView(
+  const CustomAppbarView(
       {super.key,
       required this.onPressed,
       required this.appBarTitle,

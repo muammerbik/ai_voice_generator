@@ -24,7 +24,7 @@ class _HomePageViewState extends State<HomePageView> {
           appBar: CustomAppbarView(
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => SettingsView(),
+                builder: (context) => const SettingsView(),
               ));
             },
             appBarTitle: TextConstants.appBarTitle,
@@ -33,22 +33,22 @@ class _HomePageViewState extends State<HomePageView> {
           body: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(height: 80),
+              const SizedBox(height: 80),
               TextUntil.buildTextWidget(TextConstants.startHere, 34,
                   Colors.white, TextConstants.poppins, FontWeight.w700),
               // SizedBox(height: 20),
               TextUntil.buildTextWidget(TextConstants.HomeTextDown, 17,
                   ColorConstants.white, TextConstants.poppins, FontWeight.w400),
-              SizedBox(height: 50),
+              const SizedBox(height: 50),
               Image.asset(
                 "assets/images/down1.png",
                 height: 170,
               ),
-              SizedBox(height: 90),
+              const SizedBox(height: 90),
               CustomElevatedButtonView(
                   onTop: () async {
                     Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => GenerateView(),
+                      builder: (context) => const GenerateView(),
                     ));
                   },
                   text: TextConstants.generate),

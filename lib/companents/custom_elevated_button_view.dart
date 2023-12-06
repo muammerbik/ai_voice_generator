@@ -7,7 +7,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 class CustomElevatedButtonView extends StatefulWidget {
   final String text;
   final Function() onTop;
-  CustomElevatedButtonView(
+  const CustomElevatedButtonView(
       {super.key, required this.text, required this.onTop});
 
   @override
@@ -36,8 +36,8 @@ class _CustomElevatedButtonViewState extends State<CustomElevatedButtonView> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(150),
                 ),
-                shadows: [
-                  const BoxShadow(
+                shadows: const [
+                  BoxShadow(
                     color: ColorConstants.shadowColor,
                     blurRadius: 10,
                     offset: Offset(0, 5),

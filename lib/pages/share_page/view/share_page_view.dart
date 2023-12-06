@@ -25,7 +25,6 @@ class _SharePageViewState extends State<SharePageView> {
   double sliderValue = 0;
   double maxValue = 1;
   late AudioPlayer _audioPlayer;
-  late Stream<Duration> _positionStream;
   bool isPlaying = false;
   bool shouldAutoStart = true;
 
@@ -33,7 +32,6 @@ class _SharePageViewState extends State<SharePageView> {
   void initState() {
     _audioPlayer = AudioPlayer();
     _loadAudio();
-    _positionStream = _audioPlayer.positionStream;
     _audioPlayer.positionStream.listen((position) {
       setState(() {
         sliderValue = position.inMilliseconds.toDouble();
@@ -66,7 +64,7 @@ class _SharePageViewState extends State<SharePageView> {
 
   void _seekBackward() {
     if (shouldAutoStart) {
-      final geriSarMiktari = 1000;
+      const geriSarMiktari = 1000;
       final yeniPozisyon =
           _audioPlayer.position.inMilliseconds - geriSarMiktari;
 
@@ -118,7 +116,7 @@ class _SharePageViewState extends State<SharePageView> {
         appbarImage: "assets/icons/left2.png",
         onPressed: () {
           Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => HomePageView(),
+            builder: (context) => const HomePageView(),
           ));
         },
       ),
@@ -126,7 +124,7 @@ class _SharePageViewState extends State<SharePageView> {
         builder: (context) => Center(
           child: Column(
             children: [
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               Container(
                 width: 182,
                 height: 193,
@@ -139,7 +137,7 @@ class _SharePageViewState extends State<SharePageView> {
                       color: Colors.grey.withOpacity(0.5), // Gölge rengi
                       spreadRadius: 5,
                       blurRadius: 7,
-                      offset: Offset(0, 3), // Gölgenin konumu (x, y)
+                      offset: const Offset(0, 3), // Gölgenin konumu (x, y)
                     ),
                   ],
                   image: DecorationImage(
@@ -149,8 +147,8 @@ class _SharePageViewState extends State<SharePageView> {
                   ),
                 ),
               ),
-              SizedBox(height: 30),
-              Text(
+              const SizedBox(height: 30),
+              const Text(
                 TextConstants.appBarTitle,
                 style: TextStyle(
                   fontSize: 17,
@@ -159,10 +157,10 @@ class _SharePageViewState extends State<SharePageView> {
                   fontWeight: FontWeight.w400,
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Text(
                 generateGetIt.generatePersonList[myIndex].name,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 22,
                   color: Colors.white,
                   fontFamily: 'Poppins',
@@ -182,7 +180,7 @@ class _SharePageViewState extends State<SharePageView> {
                   }
                 },
               ),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -227,7 +225,7 @@ class _SharePageViewState extends State<SharePageView> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 110,
               ),
               CustomElevatedButtonView(

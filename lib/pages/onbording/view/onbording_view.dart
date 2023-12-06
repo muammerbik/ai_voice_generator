@@ -27,7 +27,7 @@ class _OnbordingViewState extends State<OnbordingView> {
         builder: (_) {
           return Column(
             children: [
-              SizedBox(height: 130),
+              const SizedBox(height: 130),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 90),
                 child: Image.asset(
@@ -36,7 +36,7 @@ class _OnbordingViewState extends State<OnbordingView> {
                   width: 160,
                 ),
               ),
-              SizedBox(height: 40),
+              const SizedBox(height: 40),
               SizedBox(
                 width: 292,
                 child: TextUntil.buildTextWidget(
@@ -47,7 +47,7 @@ class _OnbordingViewState extends State<OnbordingView> {
                   FontWeight.w700,
                 ),
               ),
-              SizedBox(height: 5),
+              const SizedBox(height: 5),
               SizedBox(
                 width: 350,
                 child: TextUntil.buildTextWidget(
@@ -58,7 +58,7 @@ class _OnbordingViewState extends State<OnbordingView> {
                   FontWeight.w500,
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               TextUntil.buildTextWidget(
                 TextConstants.onbordingText3,
                 17,
@@ -66,19 +66,19 @@ class _OnbordingViewState extends State<OnbordingView> {
                 TextConstants.sfProText,
                 FontWeight.w600,
               ),
-              SizedBox(height: 40),
+              const SizedBox(height: 40),
               CustomElevatedButtonView(
                 onTop: () async {
                   await onbordingGetIt.onbordingComplatedSet();
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => PremiumView(),
+                      builder: (context) => const PremiumView(),
                     ),
                   );
                 },
                 text: TextConstants.continuee,
               ),
-              SizedBox(height: 40),
+              const SizedBox(height: 40),
             ],
           );
         },

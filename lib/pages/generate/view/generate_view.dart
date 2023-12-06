@@ -71,20 +71,20 @@ class _GenerateViewState extends State<GenerateView> {
                   decoration: ShapeDecoration(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(18),
-                      side: BorderSide(width: 1, color: Color(0xFF4E55FF)),
+                      side: const BorderSide(width: 1, color: Color(0xFF4E55FF)),
                     ),
                   ),
                   child: Padding(
-                    padding: EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(8.0),
                     child: TextField(
                       maxLines: 5,
                       maxLength: 250,
                       textInputAction: TextInputAction.done,
                       controller: textEditingController,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.white,
                       ),
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         border: InputBorder.none,
                         hintText: TextConstants.writeYourPrompts,
                         hintStyle: TextStyle(
@@ -140,7 +140,7 @@ class _GenerateViewState extends State<GenerateView> {
                               borderRadius: BorderRadius.circular(90),
                               border: Border.all(
                                 color: selectedTokenIndex == index
-                                    ? Color(0xFF4E55FF)
+                                    ? const Color(0xFF4E55FF)
                                     : Colors.grey.withOpacity(0.2),
                                 width: 4,
                               ),
@@ -149,7 +149,7 @@ class _GenerateViewState extends State<GenerateView> {
                                   color: Colors.black.withOpacity(0.2),
                                   spreadRadius: 1,
                                   blurRadius: 1,
-                                  offset: Offset(0, 2),
+                                  offset: const Offset(0, 2),
                                 ),
                               ],
                               image: DecorationImage(
@@ -161,14 +161,14 @@ class _GenerateViewState extends State<GenerateView> {
                           ),
                           Text(
                             generateGetIt.generatePersonList[index].name,
-                            style: TextStyle(color: Colors.white),
+                            style: const TextStyle(color: Colors.white),
                           ),
                         ],
                       ),
                     );
                   },
                   itemCount: generateGetIt.generatePersonList.length,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     mainAxisSpacing: 29,
                     crossAxisCount: 4,
                   ),
@@ -185,7 +185,7 @@ class _GenerateViewState extends State<GenerateView> {
                   if (premiumComplated || remainingRights > 0) {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => GeneratedLoadingPageView(),
+                        builder: (context) => const GeneratedLoadingPageView(),
                       ),
                     );
 
@@ -193,14 +193,14 @@ class _GenerateViewState extends State<GenerateView> {
                   } else {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => PremiumView(),
+                        builder: (context) => const PremiumView(),
                       ),
                     );
                   }
                 },
                 text: TextConstants.generate,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 60,
               ),
             ],

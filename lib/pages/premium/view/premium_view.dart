@@ -29,8 +29,8 @@ class _PremiumViewState extends State<PremiumView> {
         builder: (context) {
           return Column(
             children: [
-              PremiumStackView(),
-              SizedBox(height: 30),
+              const PremiumStackView(),
+              const SizedBox(height: 30),
               TextUntil.buildTextWidget(TextConstants.tryPremium, 34,
                   ColorConstants.white, TextConstants.poppins, FontWeight.w700),
               RowUntil().premiumRowMethod(TextConstants.limitedAds),
@@ -38,13 +38,13 @@ class _PremiumViewState extends State<PremiumView> {
                 TextConstants.usingExamplePrompts,
               ),
               RowUntil().premiumRowMethod(TextConstants.ReachAllRappers),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Container(
                 width: 350,
                 height: 60,
                 decoration: ShapeDecoration(
                   shape: RoundedRectangleBorder(
-                    side: BorderSide(width: 2, color: Color(0xFF4E55FF)),
+                    side: const BorderSide(width: 2, color: Color(0xFF4E55FF)),
                     borderRadius: BorderRadius.circular(30),
                   ),
                 ),
@@ -78,7 +78,7 @@ class _PremiumViewState extends State<PremiumView> {
                   },
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               CustomElevatedButtonView(
@@ -89,7 +89,7 @@ class _PremiumViewState extends State<PremiumView> {
                   if (premiumGetIt.checkBox &&
                       premiumGetIt.premiumComplated) {
                     Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => HomePageView(),
+                      builder: (context) => const HomePageView(),
                     ));
                   }
                 },
