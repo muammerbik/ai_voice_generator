@@ -8,7 +8,7 @@ class CustomElevatedButtonView extends StatefulWidget {
   final String text;
   final Function() onTop;
   const CustomElevatedButtonView(
-      {super.key, required this.text, required this.onTop});
+      {super.key, required this.text, required this.onTop,});
 
   @override
   State<CustomElevatedButtonView> createState() =>

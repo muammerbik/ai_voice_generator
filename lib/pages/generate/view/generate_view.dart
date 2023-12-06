@@ -71,7 +71,8 @@ class _GenerateViewState extends State<GenerateView> {
                   decoration: ShapeDecoration(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(18),
-                      side: const BorderSide(width: 1, color: Color(0xFF4E55FF)),
+                      side:
+                          const BorderSide(width: 1, color: Color(0xFF4E55FF)),
                     ),
                   ),
                   child: Padding(
@@ -176,26 +177,29 @@ class _GenerateViewState extends State<GenerateView> {
               ),
               CustomElevatedButtonView(
                 onTop: () async {
-                  String textFieldValue = textEditingController.text;
-                  mytextFieldValue = textFieldValue;
+                  if (textEditingController.text.isNotEmpty && selectedTokenIndex != -1) {
+                    String textFieldValue = textEditingController.text;
+                    mytextFieldValue = textFieldValue;
 
-                  final remainingRights =
-                      await settingsGetIt.settingsComplatedGet();
-                  final premiumComplated = await premiumComplatedGet();
-                  if (premiumComplated || remainingRights > 0) {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => const GeneratedLoadingPageView(),
-                      ),
-                    );
+                    final remainingRights =
+                        await settingsGetIt.settingsComplatedGet();
+                    final premiumComplated = await premiumComplatedGet();
+                    if (premiumComplated || remainingRights > 0) {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              const GeneratedLoadingPageView(),
+                        ),
+                      );
 
-                    await settingsGetIt.settingsComplatedSet();
-                  } else {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => const PremiumView(),
-                      ),
-                    );
+                      await settingsGetIt.settingsComplatedSet();
+                    } else {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const PremiumView(),
+                        ),
+                      );
+                    }
                   }
                 },
                 text: TextConstants.generate,

@@ -43,6 +43,7 @@ dependencies:
   just_audio: ^0.9.36
   share_plus: ^7.2.1
   get_it: ^7.6.4
+
  
  
   
@@ -59,6 +60,12 @@ dev_dependencies:
   flutter_lints: ^2.0.0
   build_runner: ^2.4.6
   mobx_codegen: ^2.4.0
+  flutter_launcher_icons: ^0.13.1
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path:  "assets/images/microphone.png" 
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
