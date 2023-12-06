@@ -4,6 +4,8 @@ I would like to share with you the "AI Voice Generator" application that I devel
 
 ## Used technologies
   - Restful Api
+  - MVVM Desing Patern
+  - Mobx / State Management
   - http
   - mobx
   - flutter_mobx
