@@ -1,4 +1,5 @@
 import 'package:ai_voice_generator/constants/color_constants.dart';
+import 'package:ai_voice_generator/get_it.dart';
 import 'package:ai_voice_generator/pages/home_page/view/home_page_view.dart';
 import 'package:ai_voice_generator/pages/onbording/view/onbording_view.dart';
 import 'package:ai_voice_generator/pages/onbording/viewmodel/onbording_view_model.dart';
@@ -17,9 +18,10 @@ class SplashScreenView extends StatefulWidget {
 class _SplashScreenViewState extends State<SplashScreenView>
     with TickerProviderStateMixin {
   AnimationController? animationController;
-  final myOnbordingViewModel = OnbordingViewModel();
-  final myPremiumViewModel = PremiumViewModel();
+
+  final premiumGetIt = locator<PremiumViewModel>();
   final mySettingsViewModel = SettingsViewModel();
+  final onbordingGetIt = locator<OnbordingViewModel>();
 
   @override
   void initState() {
@@ -28,8 +30,8 @@ class _SplashScreenViewState extends State<SplashScreenView>
   }
 
   Future<void> init() async {
-    await myOnbordingViewModel.onbordingComplatedGet();
-    await myPremiumViewModel.premiumComplatedGet();
+    await onbordingGetIt.onbordingComplatedGet();
+    await premiumGetIt.premiumComplatedGet();
     await mySettingsViewModel.settingsComplatedGet();
 
     animationController = AnimationController(
@@ -38,14 +40,13 @@ class _SplashScreenViewState extends State<SplashScreenView>
     )..addListener(() {
         setState(() {});
       });
-    if (myOnbordingViewModel.onbordingComplated &&
-        myPremiumViewModel.premiumComplated) {
+    if (onbordingGetIt.onbordingComplated && premiumGetIt.premiumComplated) {
       animationController!
           .forward()
           .whenComplete(() => Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) => const HomePageView(),
               )));
-    } else if (myOnbordingViewModel.onbordingComplated) {
+    } else if (onbordingGetIt.onbordingComplated) {
       animationController!
           .forward()
           .whenComplete(() => Navigator.of(context).push(MaterialPageRoute(

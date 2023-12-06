@@ -1,6 +1,7 @@
 import 'package:ai_voice_generator/companents/custom_elevated_button_view.dart';
 import 'package:ai_voice_generator/constants/color_constants.dart';
 import 'package:ai_voice_generator/constants/text_constants.dart';
+import 'package:ai_voice_generator/get_it.dart';
 import 'package:ai_voice_generator/pages/home_page/view/home_page_view.dart';
 
 import 'package:ai_voice_generator/pages/premium/widgets/premium_stack_view.dart';
@@ -18,9 +19,9 @@ class PremiumView extends StatefulWidget {
 }
 
 class _PremiumViewState extends State<PremiumView> {
-  final myPremiumViewModel = PremiumViewModel();
+  // final myPremiumViewModel = PremiumViewModel();
+  final premiumGetIt = locator<PremiumViewModel>();
 
-  bool myPrem = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,11 +69,11 @@ class _PremiumViewState extends State<PremiumView> {
                             TextConstants.sfProText,
                             FontWeight.w600),
                       ]),
-                  value: myPremiumViewModel.checkBox,
+                  value: premiumGetIt.checkBox,
                   onChanged: (newvalue) {
                     setState(() {
-                      myPremiumViewModel.checkBoxFunction(newvalue!);
-                      myPremiumViewModel.checkBox = newvalue;
+                      premiumGetIt.checkBoxFunction(newvalue!);
+                      premiumGetIt.checkBox = newvalue;
                     });
                   },
                 ),
@@ -82,11 +83,11 @@ class _PremiumViewState extends State<PremiumView> {
               ),
               CustomElevatedButtonView(
                 onTop: () async {
-                  await myPremiumViewModel.premiumComplatedSet();
-                  await myPremiumViewModel.premiumComplatedGet();
+                  await premiumGetIt.premiumComplatedSet();
+                  await premiumGetIt.premiumComplatedGet();
 
-                  if (myPremiumViewModel.checkBox &&
-                      myPremiumViewModel.premiumComplated) {
+                  if (premiumGetIt.checkBox &&
+                      premiumGetIt.premiumComplated) {
                     Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => HomePageView(),
                     ));

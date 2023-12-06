@@ -1,3 +1,4 @@
+import 'package:ai_voice_generator/get_it.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:ai_voice_generator/companents/custom_elevated_button_view.dart';
@@ -16,7 +17,8 @@ class OnbordingView extends StatefulWidget {
 }
 
 class _OnbordingViewState extends State<OnbordingView> {
-  final myOnbordingViewModel = OnbordingViewModel();
+  //final myOnbordingViewModel = OnbordingViewModel();
+   final onbordingGetIt = locator<OnbordingViewModel>();
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +69,7 @@ class _OnbordingViewState extends State<OnbordingView> {
               SizedBox(height: 40),
               CustomElevatedButtonView(
                 onTop: () async {
-                  await myOnbordingViewModel.onbordingComplatedSet();
+                  await onbordingGetIt.onbordingComplatedSet();
                   Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (context) => PremiumView(),

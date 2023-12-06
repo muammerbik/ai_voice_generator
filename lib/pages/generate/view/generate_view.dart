@@ -78,9 +78,10 @@ class _GenerateViewState extends State<GenerateView> {
                   child: Padding(
                     padding: EdgeInsets.all(8.0),
                     child: TextField(
+                      maxLines: 5,
+                      maxLength: 250,
                       textInputAction: TextInputAction.done,
                       controller: textEditingController,
-                      maxLength: 250,
                       style: TextStyle(
                         color: Colors.white,
                       ),
@@ -148,7 +149,7 @@ class _GenerateViewState extends State<GenerateView> {
                                 BoxShadow(
                                   color: Colors.black.withOpacity(0.2),
                                   spreadRadius: 1,
-                                  blurRadius: 4,
+                                  blurRadius: 1,
                                   offset: Offset(0, 2),
                                 ),
                               ],

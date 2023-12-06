@@ -42,6 +42,7 @@ dependencies:
   uuid: ^4.2.1
   just_audio: ^0.9.36
   share_plus: ^7.2.1
+  get_it: ^7.6.4
  
  
   
