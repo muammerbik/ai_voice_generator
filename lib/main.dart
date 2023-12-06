@@ -2,7 +2,6 @@ import 'package:ai_voice_generator/constants/color_constants.dart';
 import 'package:ai_voice_generator/constants/text_constants.dart';
 import 'package:ai_voice_generator/get_it.dart';
 import 'package:ai_voice_generator/pages/splash_screen/view/splash_page_view.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -26,7 +25,7 @@ class MyApp extends StatelessWidget {
       title: TextConstants.appBarTitle,
       theme: ThemeData(
         appBarTheme: const AppBarTheme(backgroundColor: ColorConstants.black),
-        scaffoldBackgroundColor: Colors.black, // Arka plan rengi: Siyah
+        scaffoldBackgroundColor: ColorConstants.black,
         colorScheme: ColorScheme.fromSeed(
           seedColor: ColorConstants.buttonPurpleColor,
         ),

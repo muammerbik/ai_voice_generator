@@ -54,13 +54,8 @@ class FakeyouApiServices {
 
       tokenUrl = tokenModel;
 
-      print(tokenModel + "**************************************");
-        print(tokenUrl + "************************************** Tokeeennnnnnnnnnnn");
-
       return tokenModel;
-    } else {
-      print('Error: ${response.statusCode} *******************************');
-    }
+    } else {}
 
     return result;
   }

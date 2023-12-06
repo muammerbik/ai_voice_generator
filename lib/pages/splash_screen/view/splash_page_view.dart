@@ -20,8 +20,8 @@ class _SplashScreenViewState extends State<SplashScreenView>
   AnimationController? animationController;
 
   final premiumGetIt = locator<PremiumViewModel>();
-  final mySettingsViewModel = SettingsViewModel();
   final onbordingGetIt = locator<OnbordingViewModel>();
+  final settingGetIt = locator<SettingsViewModel>();
 
   @override
   void initState() {
@@ -32,7 +32,7 @@ class _SplashScreenViewState extends State<SplashScreenView>
   Future<void> init() async {
     await onbordingGetIt.onbordingComplatedGet();
     await premiumGetIt.premiumComplatedGet();
-    await mySettingsViewModel.settingsComplatedGet();
+    await settingGetIt.settingsComplatedGet();
 
     animationController = AnimationController(
       vsync: this,
@@ -41,23 +41,29 @@ class _SplashScreenViewState extends State<SplashScreenView>
         setState(() {});
       });
     if (onbordingGetIt.onbordingComplated && premiumGetIt.premiumComplated) {
-      animationController!
-          .forward()
-          .whenComplete(() => Navigator.of(context).push(MaterialPageRoute(
+      animationController!.forward().whenComplete(
+            () => Navigator.of(context).push(
+              MaterialPageRoute(
                 builder: (context) => const HomePageView(),
-              )));
+              ),
+            ),
+          );
     } else if (onbordingGetIt.onbordingComplated) {
-      animationController!
-          .forward()
-          .whenComplete(() => Navigator.of(context).push(MaterialPageRoute(
+      animationController!.forward().whenComplete(
+            () => Navigator.of(context).push(
+              MaterialPageRoute(
                 builder: (context) => const PremiumView(),
-              )));
+              ),
+            ),
+          );
     } else {
-      animationController!
-          .forward()
-          .whenComplete(() => Navigator.of(context).push(MaterialPageRoute(
+      animationController!.forward().whenComplete(
+            () => Navigator.of(context).push(
+              MaterialPageRoute(
                 builder: (context) => const OnbordingView(),
-              )));
+              ),
+            ),
+          );
     }
   }
 

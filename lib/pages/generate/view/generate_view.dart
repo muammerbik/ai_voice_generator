@@ -1,7 +1,7 @@
 import 'package:ai_voice_generator/companents/custom_appbar_view.dart';
 import 'package:ai_voice_generator/companents/custom_elevated_button_view.dart';
-import 'package:ai_voice_generator/constants/color_constants.dart';
 import 'package:ai_voice_generator/constants/text_constants.dart';
+import 'package:ai_voice_generator/get_it.dart';
 import 'package:ai_voice_generator/global.dart';
 import 'package:ai_voice_generator/pages/generate/viewmodel/generated_viewmodel.dart';
 import 'package:ai_voice_generator/pages/generated_loading_page_view/view/generate_loading_page_view.dart';
@@ -12,7 +12,6 @@ import 'package:ai_voice_generator/until/text_until.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:uuid/uuid.dart';
 
 class GenerateView extends StatefulWidget {
   const GenerateView({Key? key}) : super(key: key);
@@ -22,10 +21,10 @@ class GenerateView extends StatefulWidget {
 }
 
 class _GenerateViewState extends State<GenerateView> {
-  final mySettingsViewModel = SettingsViewModel();
-  final myPremiumViewModel = PremiumViewModel();
+  final settingsGetIt = locator<SettingsViewModel>();
+  final premiumGetIt = locator<PremiumViewModel>();
+  final generateGetIt = locator<GeneratedViewModel>();
   TextEditingController textEditingController = TextEditingController();
-  final generateViewModel = GeneratedViewModel();
   int selectedTokenIndex = -1;
 
   Future<bool> premiumComplatedGet() async {
@@ -154,21 +153,21 @@ class _GenerateViewState extends State<GenerateView> {
                                 ),
                               ],
                               image: DecorationImage(
-                                image: AssetImage(generateViewModel
+                                image: AssetImage(generateGetIt
                                     .generatePersonList[index].img),
                                 fit: BoxFit.fill,
                               ),
                             ),
                           ),
                           Text(
-                            generateViewModel.generatePersonList[index].name,
+                            generateGetIt.generatePersonList[index].name,
                             style: TextStyle(color: Colors.white),
                           ),
                         ],
                       ),
                     );
                   },
-                  itemCount: generateViewModel.generatePersonList.length,
+                  itemCount: generateGetIt.generatePersonList.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     mainAxisSpacing: 29,
                     crossAxisCount: 4,
@@ -181,7 +180,7 @@ class _GenerateViewState extends State<GenerateView> {
                   mytextFieldValue = textFieldValue;
 
                   final remainingRights =
-                      await mySettingsViewModel.settingsComplatedGet();
+                      await settingsGetIt.settingsComplatedGet();
                   final premiumComplated = await premiumComplatedGet();
                   if (premiumComplated || remainingRights > 0) {
                     Navigator.of(context).push(
@@ -190,7 +189,7 @@ class _GenerateViewState extends State<GenerateView> {
                       ),
                     );
 
-                    await mySettingsViewModel.settingsComplatedSet();
+                    await settingsGetIt.settingsComplatedSet();
                   } else {
                     Navigator.of(context).push(
                       MaterialPageRoute(

@@ -3,6 +3,7 @@ import 'package:ai_voice_generator/companents/custom_appbar_view.dart';
 import 'package:ai_voice_generator/companents/custom_elevated_button_view.dart';
 import 'package:ai_voice_generator/constants/color_constants.dart';
 import 'package:ai_voice_generator/constants/text_constants.dart';
+import 'package:ai_voice_generator/get_it.dart';
 import 'package:ai_voice_generator/global.dart';
 import 'package:ai_voice_generator/pages/generate/viewmodel/generated_viewmodel.dart';
 import 'package:ai_voice_generator/pages/home_page/view/home_page_view.dart';
@@ -19,7 +20,8 @@ class SharePageView extends StatefulWidget {
 }
 
 class _SharePageViewState extends State<SharePageView> {
-  final generatedViewModel = GeneratedViewModel();
+  //final generatedViewModel = GeneratedViewModel();
+  final generateGetIt = locator<GeneratedViewModel>();
   double sliderValue = 0;
   double maxValue = 1;
   late AudioPlayer _audioPlayer;
@@ -142,7 +144,7 @@ class _SharePageViewState extends State<SharePageView> {
                   ],
                   image: DecorationImage(
                     image: AssetImage(
-                        generatedViewModel.generatePersonList[myIndex].img),
+                        generateGetIt.generatePersonList[myIndex].img),
                     fit: BoxFit.fill,
                   ),
                 ),
@@ -159,7 +161,7 @@ class _SharePageViewState extends State<SharePageView> {
               ),
               SizedBox(height: 10),
               Text(
-                generatedViewModel.generatePersonList[myIndex].name,
+                generateGetIt.generatePersonList[myIndex].name,
                 style: TextStyle(
                   fontSize: 22,
                   color: Colors.white,

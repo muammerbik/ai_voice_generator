@@ -19,7 +19,7 @@ class PremiumView extends StatefulWidget {
 }
 
 class _PremiumViewState extends State<PremiumView> {
-  // final myPremiumViewModel = PremiumViewModel();
+
   final premiumGetIt = locator<PremiumViewModel>();
 
   @override

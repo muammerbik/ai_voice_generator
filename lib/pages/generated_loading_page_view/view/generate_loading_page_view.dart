@@ -1,7 +1,7 @@
 import 'package:ai_voice_generator/constants/text_constants.dart';
+import 'package:ai_voice_generator/get_it.dart';
 import 'package:ai_voice_generator/global.dart';
 import 'package:ai_voice_generator/pages/generate/viewmodel/generated_viewmodel.dart';
-import 'package:ai_voice_generator/pages/settings/modelview/setting_view_model.dart';
 import 'package:ai_voice_generator/pages/share_page/view/share_page_view.dart';
 import 'package:ai_voice_generator/services/fakeyou_%20api_services.dart';
 import 'package:ai_voice_generator/until/text_until.dart';
@@ -17,8 +17,8 @@ class GeneratedLoadingPageView extends StatefulWidget {
 
 class _GeneratedLoadingPageViewState extends State<GeneratedLoadingPageView>
     with TickerProviderStateMixin {
-  final settingsViewModel = SettingsViewModel();
-  final viewModel = GeneratedViewModel();
+  final generateGetIt = locator<GeneratedViewModel>();
+
   bool isBool = false;
 
   @override
@@ -33,7 +33,7 @@ class _GeneratedLoadingPageViewState extends State<GeneratedLoadingPageView>
 
     await FakeyouApiServices().sendTokenToApi(
       mytextFieldValue,
-      viewModel.generatePersonList[myIndex].token,
+      generateGetIt.generatePersonList[myIndex].token,
     );
 
     setState(() {
