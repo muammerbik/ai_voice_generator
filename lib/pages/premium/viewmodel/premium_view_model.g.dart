@@ -77,6 +77,16 @@ mixin _$PremiumViewModel on _PremiumViewModelBase, Store {
         .run(() => super.premiumCompletedGet());
   }
 
+  late final _$premiumButtonTappedAsyncAction = AsyncAction(
+      '_PremiumViewModelBase.premiumButtonTapped',
+      context: context);
+
+  @override
+  Future<void> premiumButtonTapped(BuildContext context) {
+    return _$premiumButtonTappedAsyncAction
+        .run(() => super.premiumButtonTapped(context));
+  }
+
   late final _$_PremiumViewModelBaseActionController =
       ActionController(name: '_PremiumViewModelBase', context: context);
 

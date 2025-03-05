@@ -1,15 +1,12 @@
 import 'package:ai_voice_generator/components/custom_appBar/custom_appBar.dart';
-import 'package:ai_voice_generator/components/custom_text/custom_text_widget.dart';
 import 'package:ai_voice_generator/components/navigation_helper/navigation_helper.dart';
 import 'package:ai_voice_generator/constants/color_constants.dart';
 import 'package:ai_voice_generator/constants/text_constants.dart';
 import 'package:ai_voice_generator/get_it/get_it.dart';
-import 'package:ai_voice_generator/pages/premium/view/premium_view.dart';
 import 'package:ai_voice_generator/pages/premium/viewmodel/premium_view_model.dart';
 import 'package:ai_voice_generator/pages/settings/widgets/settings_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SettingsView extends StatefulWidget {
   const SettingsView({super.key});

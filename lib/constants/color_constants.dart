@@ -8,7 +8,7 @@ class ColorConstants {
   static const Color buttonBlueColor = Color(0xFF4E55FF);
   static const Color shadowColor = Color(0x726E56FF);
   static const lightGrey = Color(0x2D3C3C43);
-  static const  borderColor =  Color(0xFF4E55FF);
+  static const borderColor = Color(0xFF4E55FF);
   static const darkWhite = Color(0xFFF3F3F3);
-  
+  static const red = const Color(0xFFd90329);
 }

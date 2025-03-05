@@ -1,10 +1,8 @@
 import 'package:ai_voice_generator/components/custom_button/custom_elevated_button.dart';
 import 'package:ai_voice_generator/components/custom_text/custom_text_widget.dart';
-import 'package:ai_voice_generator/components/navigation_helper/navigation_helper.dart';
 import 'package:ai_voice_generator/constants/color_constants.dart';
 import 'package:ai_voice_generator/constants/text_constants.dart';
 import 'package:ai_voice_generator/get_it/get_it.dart';
-import 'package:ai_voice_generator/pages/home/view/home_page_view.dart';
 import 'package:ai_voice_generator/pages/premium/widgets/premium_gridView_widget.dart';
 import 'package:ai_voice_generator/pages/premium/viewmodel/premium_view_model.dart';
 import 'package:ai_voice_generator/pages/premium/widgets/premium_text_widget.dart';
@@ -26,18 +24,11 @@ class _PremiumViewState extends State<PremiumView> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: Padding(
-        padding: EdgeInsets.symmetric(vertical: 32.h),
+        padding: EdgeInsets.only(bottom: 32.h, top: 8.h),
         child: CustomElevatedButton(
           text: TextConstants.continueBtnText,
           onTop: () async {
-            await premiumViewModel.premiumCompletedSet();
-            await premiumViewModel.premiumCompletedGet();
-            if (premiumViewModel.checkBox &&
-                premiumViewModel.premiumCompleted) {
-              Navigation.push(
-                page: const HomePageView(),
-              );
-            }
+            premiumViewModel.premiumButtonTapped(context);
           },
         ),
       ),

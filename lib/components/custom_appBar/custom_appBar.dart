@@ -22,7 +22,7 @@ class CustomAppBarView extends StatefulWidget implements PreferredSizeWidget {
     this.textColor,
     this.onTap,
     this.iconColor,
-    this.leadingIcon, 
+    this.leadingIcon,
   }) : super(key: key);
 
   @override

@@ -1,11 +1,11 @@
 import 'dart:convert';
 
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-class fakeyouModelll {
+class FakeYouModel {
   bool? success;
   String? inference_job_token;
   String? inference_job_token_type;
-  fakeyouModelll({
+  FakeYouModel({
     this.success,
     this.inference_job_token,
     this.inference_job_token_type,
@@ -19,8 +19,8 @@ class fakeyouModelll {
     };
   }
 
-  factory fakeyouModelll.fromMap(Map<String, dynamic> map) {
-    return fakeyouModelll(
+  factory FakeYouModel.fromMap(Map<String, dynamic> map) {
+    return FakeYouModel(
       success: map['success'] != null ? map['success'] as bool : null,
       inference_job_token: map['inference_job_token'] != null
           ? map['inference_job_token'] as String
@@ -33,10 +33,10 @@ class fakeyouModelll {
 
   String toJson() => json.encode(toMap());
 
-  factory fakeyouModelll.fromJson(String source) =>
-      fakeyouModelll.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory FakeYouModel.fromJson(String source) =>
+      FakeYouModel.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
   String toString() =>
-      'fakeyouModelll(success: $success, inferenceJobToken: $inference_job_token, inferenceJobTokenType: $inference_job_token_type)';
+      'FakeYouModel(success: $success, inferenceJobToken: $inference_job_token, inferenceJobTokenType: $inference_job_token_type)';
 }

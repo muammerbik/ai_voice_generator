@@ -45,6 +45,16 @@ mixin _$OnboardingViewModel on _OnboardingViewModelBase, Store {
         .run(() => super.onboardingCompletedGet());
   }
 
+  late final _$continueButtonTappedAsyncAction = AsyncAction(
+      '_OnboardingViewModelBase.continueButtonTapped',
+      context: context);
+
+  @override
+  Future<void> continueButtonTapped() {
+    return _$continueButtonTappedAsyncAction
+        .run(() => super.continueButtonTapped());
+  }
+
   @override
   String toString() {
     return '''

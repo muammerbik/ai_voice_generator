@@ -54,7 +54,7 @@ class _VoiceGeneratorPageViewState extends State<VoiceGeneratorPageView> {
         centerTitle: true,
         leadingIcon: IconButton(
           onPressed: () {
-            Navigation.push(
+            Navigation.pushAndRemoveAll(
               page: const HomePageView(),
             );
           },

@@ -1,12 +1,10 @@
 import 'package:ai_voice_generator/components/custom_button/custom_elevated_button.dart';
 import 'package:ai_voice_generator/components/custom_text/custom_text_widget.dart';
-import 'package:ai_voice_generator/components/navigation_helper/navigation_helper.dart';
 import 'package:ai_voice_generator/get_it/get_it.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:ai_voice_generator/constants/text_constants.dart';
 import 'package:ai_voice_generator/pages/onboarding/viewmodel/onboarding_viewmodel.dart';
-import 'package:ai_voice_generator/pages/premium/view/premium_view.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OnboardingView extends StatefulWidget {
@@ -26,10 +24,8 @@ class _OnboardingViewState extends State<OnboardingView> {
         padding: EdgeInsets.symmetric(vertical: 32.h),
         child: CustomElevatedButton(
           text: TextConstants.continueBtnText,
-          onTop: () async {
-            await onboardingViewModel.onboardingCompletedSet();
-            
-            Navigation.push(page: PremiumView());
+          onTop: () {
+            onboardingViewModel.continueButtonTapped();
           },
         ),
       ),

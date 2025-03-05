@@ -2,7 +2,7 @@ import 'package:ai_voice_generator/components/navigation_helper/navigation_helpe
 import 'package:ai_voice_generator/constants/color_constants.dart';
 import 'package:ai_voice_generator/constants/text_constants.dart';
 import 'package:ai_voice_generator/get_it/get_it.dart';
-import 'package:ai_voice_generator/pages/splash/splash_page_view.dart';
+import 'package:ai_voice_generator/pages/main_page/main_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
             ),
             useMaterial3: true,
           ),
-          home: const SplashScreenView(),
+          home: const StarterPage(),
         );
       },
     );

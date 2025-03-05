@@ -68,6 +68,8 @@ flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
   image_path:  "assets/images/microphone.png" 
+ 
+  
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

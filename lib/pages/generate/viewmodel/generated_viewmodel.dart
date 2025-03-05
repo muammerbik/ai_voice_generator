@@ -1,10 +1,39 @@
+import 'package:ai_voice_generator/components/dialog/custom_snackBar.dart';
+import 'package:ai_voice_generator/components/navigation_helper/navigation_helper.dart';
+import 'package:ai_voice_generator/constants/color_constants.dart';
+import 'package:ai_voice_generator/global.dart';
+import 'package:ai_voice_generator/pages/generated_loading_page/view/generate_loading_page_view.dart';
+import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 part 'generated_viewmodel.g.dart';
 
 class GeneratedViewModel = _GeneratedViewModelBase with _$GeneratedViewModel;
 
 abstract class _GeneratedViewModelBase with Store {
- 
+  @observable
+  TextEditingController textEditingController = TextEditingController();
+  @observable
+  int selectedTokenIndex = -1;
+
+  @action
+  Future<void> generateButtonTapped(BuildContext context) async {
+    if (textEditingController.text.isNotEmpty && selectedTokenIndex != -1) {
+      String textFieldValue = textEditingController.text;
+      mytextFieldValue = textFieldValue;
+
+      Navigation.push(
+        page: const GeneratedLoadingPageView(),
+      );
+    } else {
+      CustomSnackBar.show(
+        context: context,
+        message: "Make sure you select a character and enter text.",
+        containerColor: ColorConstants.red,
+        textColor: Colors.white,
+      );
+      return;
+    }
+  }
 
   @observable
   List<GenerateModel> generatePersonList = [
@@ -53,4 +82,3 @@ class GenerateModel {
     required this.token,
   });
 }
-

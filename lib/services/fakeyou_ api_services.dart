@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:uuid/uuid.dart';
 
-class FakeyouApiServices {
+class FakeYouApiServices {
   final String baseUrl = "https://api.fakeyou.com/tts/inference";
   final String getBaseUrl = "https://api.fakeyou.com/tts/job/";
 
@@ -31,7 +31,7 @@ class FakeyouApiServices {
 
     if (response.statusCode == 200) {
       debugPrint(response.body);
-      fakeyouModelll model = fakeyouModelll.fromJson(response.body);
+      FakeYouModel model = FakeYouModel.fromJson(response.body);
       String ttfPath = "";
 
       while (true) {

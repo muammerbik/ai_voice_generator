@@ -36,7 +36,7 @@ class _CustomSettingsButtonState extends State<CustomSettingsButton> {
       builder: (context) => GestureDetector(
         onTap: widget.onTap,
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
+          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 6.h),
           child: Container(
             height: widget.height ?? 64.h,
             decoration: BoxDecoration(

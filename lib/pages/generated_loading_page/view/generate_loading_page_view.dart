@@ -1,4 +1,5 @@
 import 'package:ai_voice_generator/components/custom_text/custom_text_widget.dart';
+import 'package:ai_voice_generator/components/navigation_helper/navigation_helper.dart';
 import 'package:ai_voice_generator/constants/text_constants.dart';
 import 'package:ai_voice_generator/get_it/get_it.dart';
 import 'package:ai_voice_generator/global.dart';
@@ -32,7 +33,7 @@ class _GeneratedLoadingPageViewState extends State<GeneratedLoadingPageView>
   void getApiResponse() async {
     await Future.delayed(const Duration(milliseconds: 100));
 
-    await FakeyouApiServices().sendTokenToApi(
+    await FakeYouApiServices().sendTokenToApi(
       mytextFieldValue,
       generateGetIt.generatePersonList[myIndex].token,
     );
@@ -41,9 +42,9 @@ class _GeneratedLoadingPageViewState extends State<GeneratedLoadingPageView>
       isBool = true;
     });
 
-    Navigator.of(context).push(MaterialPageRoute(
-      builder: (context) => const VoiceGeneratorPageView(),
-    ));
+    Navigation.pushAndRemoveAll(
+      page: const VoiceGeneratorPageView(),
+    );
   }
 
   @override

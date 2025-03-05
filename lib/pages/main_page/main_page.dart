@@ -48,11 +48,9 @@ class MainView extends StatefulWidget {
 class _MainViewState extends State<MainView> {
   final onboardingViewModel = locator<OnboardingViewModel>();
   final premiumViewModel = locator<PremiumViewModel>();
-
   @override
   initState() {
     onboardingViewModel.onboardingCompletedGet();
-
     premiumViewModel.premiumCompletedGet();
     super.initState();
   }
