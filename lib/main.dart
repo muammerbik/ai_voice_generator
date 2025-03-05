@@ -1,9 +1,11 @@
+import 'package:ai_voice_generator/companents/navigation_helper/navigation_helper.dart';
 import 'package:ai_voice_generator/constants/color_constants.dart';
 import 'package:ai_voice_generator/constants/text_constants.dart';
-import 'package:ai_voice_generator/get_it.dart';
-import 'package:ai_voice_generator/pages/splash_screen/view/splash_page_view.dart';
+import 'package:ai_voice_generator/get_it/get_it.dart';
+import 'package:ai_voice_generator/pages/splash/view/splash_page_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() {
   setUpGetIt();
@@ -20,18 +22,27 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: TextConstants.appBarTitle,
-      theme: ThemeData(
-        appBarTheme: const AppBarTheme(backgroundColor: ColorConstants.black),
-        scaffoldBackgroundColor: ColorConstants.black,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: ColorConstants.buttonPurpleColor,
-        ),
-        useMaterial3: true,
-      ),
-      home: const SplashScreenView(),
+    return ScreenUtilInit(
+      designSize: const Size(393, 851),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: TextConstants.appBarTitle,
+          navigatorKey: Navigation.navigationKey,
+          theme: ThemeData(
+            appBarTheme:
+                const AppBarTheme(backgroundColor: ColorConstants.black),
+            scaffoldBackgroundColor: ColorConstants.black,
+            colorScheme: ColorScheme.fromSeed(
+              seedColor: ColorConstants.buttonPurpleColor,
+            ),
+            useMaterial3: true,
+          ),
+          home: const SplashScreenView(),
+        );
+      },
     );
   }
 }

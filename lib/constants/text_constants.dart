@@ -1,12 +1,12 @@
 class TextConstants {
-  static const String onbordingText1 = "Welcome to \nVoice Ai: Rap\ngenerator";
-  static const String onbordingText2 =
-      'The ultimate \nRap Song generator experience.';
-  static const String onbordingText3 =
+  static const String onboardingText1 = "Welcome to\nVoice Ai:Rap\ngenerator";
+  static const String onboardingText2 =
+      'The ultimate\nRap Song generator experience.';
+  static const String onboardingText3 =
       'Write a prompt & get lyrics\nChoose a beat\nChoose your favorite rapper\nShare your creation';
 
   static const String sfProText = 'SF Pro Text';
-  static const String continuee = "Continue";
+  static const String continueBtnText = "Continue";
   static const String poppins = 'Poppins';
   static const String generate = "Generate";
   static const String share = "Share";
@@ -27,9 +27,10 @@ class TextConstants {
   static const String startHere = 'Start here';
   static const String HomeTextDown =
       'Generate a rap song in a few \neasy steps!';
-  static const String generateLoadingAppbarTitle = 'Generating \nAI Voice';
+  static const String generateLoadingAppBarTitle = 'Generating AI Voice';
   static const String whatShouldAiCharacter = 'What should AI character say?';
   static const String writeYourPrompts = 'Write your prompts';
   static const String selectAiVoice = 'Select AI Voice';
   static const String aiVoiceGenerator = 'Ai voice generator';
+  static const String seeAll = "SeeAll";
 }

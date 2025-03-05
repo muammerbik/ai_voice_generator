@@ -1,6 +1,4 @@
 import 'package:mobx/mobx.dart';
-
-import '../generate_model.dart';
 part 'generated_viewmodel.g.dart';
 
 class GeneratedViewModel = _GeneratedViewModelBase with _$GeneratedViewModel;
@@ -44,3 +42,15 @@ abstract class _GeneratedViewModelBase with Store {
         token: "TM:fxq6hnfc3rht"),
   ];
 }
+
+class GenerateModel {
+  final String name;
+  final String img;
+  final String token;
+  GenerateModel({
+    required this.name,
+    required this.img,
+    required this.token,
+  });
+}
+

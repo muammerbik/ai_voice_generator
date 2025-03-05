@@ -1,11 +1,12 @@
+import 'package:ai_voice_generator/companents/custom_text/custom_text_widget.dart';
 import 'package:ai_voice_generator/constants/text_constants.dart';
-import 'package:ai_voice_generator/get_it.dart';
+import 'package:ai_voice_generator/get_it/get_it.dart';
 import 'package:ai_voice_generator/global.dart';
 import 'package:ai_voice_generator/pages/generate/viewmodel/generated_viewmodel.dart';
-import 'package:ai_voice_generator/pages/share_page/view/share_page_view.dart';
+import 'package:ai_voice_generator/pages/voice_generator/view/voice_generator_page_view.dart';
 import 'package:ai_voice_generator/services/fakeyou_%20api_services.dart';
-import 'package:ai_voice_generator/until/text_until.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class GeneratedLoadingPageView extends StatefulWidget {
   const GeneratedLoadingPageView({Key? key}) : super(key: key);
@@ -41,39 +42,35 @@ class _GeneratedLoadingPageViewState extends State<GeneratedLoadingPageView>
     });
 
     Navigator.of(context).push(MaterialPageRoute(
-      builder: (context) => const SharePageView(),
+      builder: (context) => const VoiceGeneratorPageView(),
     ));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: Positioned(
-          right: 70,
-          child: Center(
-            child: TextUntil.buildTextWidget(
-              TextConstants.generateLoadingAppbarTitle,
-              22,
-              Colors.white,
-              TextConstants.poppins,
-              FontWeight.w700,
-            ),
-          ),
-        ),
-      ),
       body: Center(
-        child: SizedBox(
-          height: 100,
-          width: 100,
-          child: Visibility(
-            visible: !isBool,
-            child: const CircularProgressIndicator(
-              strokeWidth: 15,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(
+              height: 100.h,
+              width: 100.h,
+              child: Visibility(
+                visible: !isBool,
+                replacement: Container(),
+                child: const CircularProgressIndicator(
+                  strokeWidth: 15,
+                ),
+              ),
             ),
-            replacement: Container(),
-          ),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 36.h),
+              child: TextWidgets(
+                  text: TextConstants.generateLoadingAppBarTitle, size: 20.sp),
+            ),
+          ],
         ),
       ),
     );

@@ -6,16 +6,22 @@ class PremiumViewModel = _PremiumViewModelBase with _$PremiumViewModel;
 
 abstract class _PremiumViewModelBase with Store {
   @observable
-  bool premiumComplated = false;
+  bool premiumCompleted = false;
 
   @observable
   bool checkBox = false;
 
   @action
-  Future<void> premiumComplatedSet() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setBool('premiumComplated', true);
-    premiumComplated = true;
+  Future<void> premiumCompletedSet() async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    await preferences.setBool('premiumCompleted', true);
+    premiumCompleted = true;
+  }
+
+  @action
+  Future<void> premiumCompletedGet() async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    premiumCompleted = preferences.getBool('premiumCompleted') ?? false;
   }
 
   @observable
@@ -25,12 +31,6 @@ abstract class _PremiumViewModelBase with Store {
     "assets/images/img_premium3.png",
     "assets/images/img_premium4.png",
   ];
-
-  @action
-  Future<void> premiumComplatedGet() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    premiumComplated = prefs.getBool('premiumComplated') ?? false;
-  }
 
   @action
   void checkBoxFunction(bool value) {

@@ -43,6 +43,8 @@ dependencies:
   just_audio: ^0.9.36
   share_plus: ^7.2.1
   get_it: ^7.6.4
+  flutter_screenutil: ^5.9.3
+  page_transition: ^2.2.1
 
  
  

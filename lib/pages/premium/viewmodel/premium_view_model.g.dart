@@ -9,19 +9,19 @@ part of 'premium_view_model.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$PremiumViewModel on _PremiumViewModelBase, Store {
-  late final _$premiumComplatedAtom =
-      Atom(name: '_PremiumViewModelBase.premiumComplated', context: context);
+  late final _$premiumCompletedAtom =
+      Atom(name: '_PremiumViewModelBase.premiumCompleted', context: context);
 
   @override
-  bool get premiumComplated {
-    _$premiumComplatedAtom.reportRead();
-    return super.premiumComplated;
+  bool get premiumCompleted {
+    _$premiumCompletedAtom.reportRead();
+    return super.premiumCompleted;
   }
 
   @override
-  set premiumComplated(bool value) {
-    _$premiumComplatedAtom.reportWrite(value, super.premiumComplated, () {
-      super.premiumComplated = value;
+  set premiumCompleted(bool value) {
+    _$premiumCompletedAtom.reportWrite(value, super.premiumCompleted, () {
+      super.premiumCompleted = value;
     });
   }
 
@@ -57,24 +57,24 @@ mixin _$PremiumViewModel on _PremiumViewModelBase, Store {
     });
   }
 
-  late final _$premiumComplatedSetAsyncAction = AsyncAction(
-      '_PremiumViewModelBase.premiumComplatedSet',
+  late final _$premiumCompletedSetAsyncAction = AsyncAction(
+      '_PremiumViewModelBase.premiumCompletedSet',
       context: context);
 
   @override
-  Future<void> premiumComplatedSet() {
-    return _$premiumComplatedSetAsyncAction
-        .run(() => super.premiumComplatedSet());
+  Future<void> premiumCompletedSet() {
+    return _$premiumCompletedSetAsyncAction
+        .run(() => super.premiumCompletedSet());
   }
 
-  late final _$premiumComplatedGetAsyncAction = AsyncAction(
-      '_PremiumViewModelBase.premiumComplatedGet',
+  late final _$premiumCompletedGetAsyncAction = AsyncAction(
+      '_PremiumViewModelBase.premiumCompletedGet',
       context: context);
 
   @override
-  Future<void> premiumComplatedGet() {
-    return _$premiumComplatedGetAsyncAction
-        .run(() => super.premiumComplatedGet());
+  Future<void> premiumCompletedGet() {
+    return _$premiumCompletedGetAsyncAction
+        .run(() => super.premiumCompletedGet());
   }
 
   late final _$_PremiumViewModelBaseActionController =
@@ -94,7 +94,7 @@ mixin _$PremiumViewModel on _PremiumViewModelBase, Store {
   @override
   String toString() {
     return '''
-premiumComplated: ${premiumComplated},
+premiumCompleted: ${premiumCompleted},
 checkBox: ${checkBox},
 imageModel: ${imageModel}
     ''';
