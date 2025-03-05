@@ -1,4 +1,4 @@
-import 'package:ai_voice_generator/companents/custom_text/custom_text_widget.dart';
+import 'package:ai_voice_generator/components/custom_text/custom_text_widget.dart';
 import 'package:ai_voice_generator/constants/text_constants.dart';
 import 'package:ai_voice_generator/get_it/get_it.dart';
 import 'package:ai_voice_generator/global.dart';

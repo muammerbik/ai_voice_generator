@@ -1,11 +1,11 @@
-import 'package:ai_voice_generator/companents/navigation_helper/navigation_helper.dart';
+import 'package:ai_voice_generator/components/navigation_helper/navigation_helper.dart';
 import 'package:ai_voice_generator/get_it/get_it.dart';
 import 'package:ai_voice_generator/pages/home/view/home_page_view.dart';
 import 'package:ai_voice_generator/pages/onboarding/view/onboarding_view.dart';
 import 'package:ai_voice_generator/pages/onboarding/viewmodel/onboarding_viewmodel.dart';
 import 'package:ai_voice_generator/pages/premium/view/premium_view.dart';
 import 'package:ai_voice_generator/pages/premium/viewmodel/premium_view_model.dart';
-import 'package:ai_voice_generator/pages/splash/view/splash_page_view.dart';
+import 'package:ai_voice_generator/pages/splash/splash_page_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 

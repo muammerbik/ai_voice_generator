@@ -1,6 +1,6 @@
-import 'package:ai_voice_generator/companents/custom_appBar/custom_appBar.dart';
-import 'package:ai_voice_generator/companents/custom_text/custom_text_widget.dart';
-import 'package:ai_voice_generator/companents/navigation_helper/navigation_helper.dart';
+import 'package:ai_voice_generator/components/custom_appBar/custom_appBar.dart';
+import 'package:ai_voice_generator/components/custom_text/custom_text_widget.dart';
+import 'package:ai_voice_generator/components/navigation_helper/navigation_helper.dart';
 import 'package:ai_voice_generator/constants/color_constants.dart';
 import 'package:ai_voice_generator/constants/text_constants.dart';
 import 'package:ai_voice_generator/get_it/get_it.dart';

@@ -1,4 +1,4 @@
-import 'package:ai_voice_generator/companents/navigation_helper/navigation_helper.dart';
+import 'package:ai_voice_generator/components/navigation_helper/navigation_helper.dart';
 import 'package:ai_voice_generator/pages/home/view/home_page_view.dart';
 import 'package:ai_voice_generator/pages/premium/viewmodel/premium_view_model.dart';
 import 'package:flutter/material.dart';

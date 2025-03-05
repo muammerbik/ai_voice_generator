@@ -1,5 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:ai_voice_generator/companents/custom_text/custom_text_widget.dart';
+import 'package:ai_voice_generator/components/custom_text/custom_text_widget.dart';
 import 'package:ai_voice_generator/constants/color_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
