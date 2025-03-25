@@ -17,4 +17,4 @@ The "AI Voice Generator" app allows users to transform and personalize the voice
   - get_it
 
 ## App Link
-- https://www.linkedin.com/posts/muammer-bik-338404234_technologies-dart-flutter-activity-7138143900736684033-BPR1?utm_source=share&utm_medium=member_desktop
+-  https://www.linkedin.com/posts/muammer-bik-338404234_technologies-dart-flutter-activity-7138143900736684033-BPR1?utm_source=share&utm_medium=member_desktop
